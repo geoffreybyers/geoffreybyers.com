@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from "astro:content";
+import StatusIndicator from "./StatusIndicator.astro";
+import ExternalArrow from "./ExternalArrow.astro";
+import { formatDateRange } from "../lib/formatDate";
+
+interface Props {
+  entry: CollectionEntry<"work">;
+  index: number;
+}
+
+const { entry, index } = Astro.props;
+const { name, tagline, type, status, startDate, endDate, externalUrl, repoUrl } = entry.data;
+
+const isExternal = type === "link-out";
+const href = isExternal ? externalUrl! : `/work/${entry.id}`;
+const dateRange = formatDateRange(startDate, endDate);
+
+const numberLabel = String(index).padStart(2, "0");
+
+const rowProps = isExternal
+  ? { target: "_blank", rel: "noopener" }
+  : {};
+---
+<li class="border-b border-[var(--rule)] last:border-b-0">
+  <a
+    href={href}
+    {...rowProps}
+    class="group grid grid-cols-[3rem_1fr_auto] items-baseline gap-4 px-2 py-5 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--rule)_35%,transparent)]"
+  >
+    <span class="font-mono text-[0.8125rem] text-[var(--fg-subtle)] tabular-nums">{numberLabel}</span>
+    <span class="min-w-0">
+      <span class="flex items-center gap-2 text-[1.0625rem] font-medium text-[var(--fg)]">
+        {name}
+        {isExternal && <ExternalArrow />}
+      </span>
+      <span class="mt-1 block text-[0.875rem] text-[var(--fg-muted)]">
+        {tagline}
+      </span>
+    </span>
+    <span class="flex items-center gap-2 whitespace-nowrap font-mono text-[0.8125rem] text-[var(--fg-muted)] tabular-nums">
+      <StatusIndicator status={status} />
+      <span aria-hidden="true" class="text-[var(--fg-subtle)]">·</span>
+      <span>{dateRange}</span>
+      {isExternal && repoUrl && (
+        <>
+          <span aria-hidden="true" class="text-[var(--fg-subtle)]">·</span>
+          <span>github</span>
+        </>
+      )}
+    </span>
+  </a>
+</li>
