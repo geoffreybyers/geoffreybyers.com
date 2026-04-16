@@ -1,9 +1,9 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import StatusIndicator from "../../components/StatusIndicator.astro";
+import { getCollection, render } from "astro:content";
 import ExternalArrow from "../../components/ExternalArrow.astro";
 import PostRow from "../../components/PostRow.astro";
-import { getCollection, render } from "astro:content";
+import StatusIndicator from "../../components/StatusIndicator.astro";
+import Layout from "../../layouts/Layout.astro";
 import { formatDateRange } from "../../lib/formatDate";
 
 export async function getStaticPaths() {

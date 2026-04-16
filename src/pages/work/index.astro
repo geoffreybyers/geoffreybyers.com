@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import WorkRow from "../../components/WorkRow.astro";
 import { getCollection } from "astro:content";
+import WorkRow from "../../components/WorkRow.astro";
+import Layout from "../../layouts/Layout.astro";
 import { sortWork } from "../../lib/sortWork";
 
 const all = await getCollection("work");

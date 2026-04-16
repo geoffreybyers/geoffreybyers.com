@@ -1,8 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import StatusIndicator from "./StatusIndicator.astro";
-import ExternalArrow from "./ExternalArrow.astro";
 import { formatDateRange } from "../lib/formatDate";
+import ExternalArrow from "./ExternalArrow.astro";
+import StatusIndicator from "./StatusIndicator.astro";
 
 interface Props {
   entry: CollectionEntry<"work">;
@@ -18,9 +18,7 @@ const dateRange = formatDateRange(startDate, endDate);
 
 const numberLabel = String(index).padStart(2, "0");
 
-const rowProps = isExternal
-  ? { target: "_blank", rel: "noopener" }
-  : {};
+const rowProps = isExternal ? { target: "_blank", rel: "noopener" } : {};
 ---
 <li class="border-b border-[var(--rule)] last:border-b-0">
   <a

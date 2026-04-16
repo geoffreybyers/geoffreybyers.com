@@ -1,5 +1,6 @@
 ---
 import { NAV_ITEMS, SITE } from "../lib/constants";
+
 const { pathname } = Astro.url;
 const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 ---

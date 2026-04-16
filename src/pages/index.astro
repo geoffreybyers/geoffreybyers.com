@@ -1,8 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import WorkRow from "../components/WorkRow.astro";
-import PostRow from "../components/PostRow.astro";
 import { getCollection } from "astro:content";
+import PostRow from "../components/PostRow.astro";
+import WorkRow from "../components/WorkRow.astro";
+import Layout from "../layouts/Layout.astro";
 
 const allWork = await getCollection("work");
 const featuredWork = allWork

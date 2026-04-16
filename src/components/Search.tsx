@@ -22,7 +22,7 @@ export default function Search() {
   useEffect(() => {
     (async () => {
       try {
-        // @ts-ignore — Pagefind is emitted at /pagefind/pagefind.js at build time
+        // @ts-expect-error — Pagefind is emitted at /pagefind/pagefind.js at build time
         const pf = await import(/* @vite-ignore */ "/pagefind/pagefind.js");
         window.pagefind = pf;
         setReady(true);

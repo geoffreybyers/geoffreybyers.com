@@ -1,6 +1,6 @@
 ---
-import Layout from "../../layouts/Layout.astro";
 import { getCollection, getEntry, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 import { formatDate } from "../../lib/formatDate";
 
 export async function getStaticPaths() {
@@ -18,11 +18,13 @@ let workEntry: Awaited<ReturnType<typeof getEntry>> | undefined;
 if (post.data.work) {
   workEntry = await getEntry(post.data.work);
   if (!workEntry) {
-    throw new Error(`Post "${post.data.title}" references missing work entry "${post.data.work.id}".`);
+    throw new Error(
+      `Post "${post.data.title}" references missing work entry "${post.data.work.id}".`,
+    );
   }
   if (workEntry.data.type !== "case-study") {
     throw new Error(
-      `Post "${post.data.title}" references work "${workEntry.id}" with type "${workEntry.data.type}" — only case-study entries are linkable from posts.`
+      `Post "${post.data.title}" references work "${workEntry.id}" with type "${workEntry.data.type}" — only case-study entries are linkable from posts.`,
     );
   }
 }
