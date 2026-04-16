@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import StatusIndicator from "../../components/StatusIndicator.astro";
+import ExternalArrow from "../../components/ExternalArrow.astro";
+import PostRow from "../../components/PostRow.astro";
+import { getCollection, render } from "astro:content";
+import { formatDateRange } from "../../lib/formatDate";
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection("work", ({ data }) => data.type === "case-study");
+  return caseStudies.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { name, tagline, status, startDate, endDate, liveUrl, repoUrl, accentColor } = entry.data;
+const dateRange = formatDateRange(startDate, endDate);
+
+const allPosts = await getCollection("posts", ({ data }) => !data.draft);
+const relatedPosts = allPosts
+  .filter((p) => p.data.work?.id === entry.id)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const styleAccent = accentColor ? `--accent: ${accentColor};` : undefined;
+---
+<Layout title={name} description={tagline}>
+  <div style={styleAccent}>
+    <nav class="text-[0.8125rem] font-mono text-[var(--fg-muted)]">
+      <a href="/work" class="underline-grow">← Work</a>
+    </nav>
+
+    <header class="mt-6">
+      <h1 class="text-[2.5rem] leading-[1.1] font-semibold tracking-tight">{name}</h1>
+      <p class="mt-3 text-[1.0625rem] text-[var(--fg-muted)]">{tagline}</p>
+
+      <div class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[0.8125rem] text-[var(--fg-muted)]">
+        <StatusIndicator status={status} />
+        <span aria-hidden="true" class="text-[var(--fg-subtle)]">·</span>
+        <span>{dateRange}</span>
+        {liveUrl && (
+          <>
+            <span aria-hidden="true" class="text-[var(--fg-subtle)]">·</span>
+            <a href={liveUrl} target="_blank" rel="noopener" class="group underline-grow text-[var(--fg)]">
+              live <ExternalArrow />
+            </a>
+          </>
+        )}
+        {repoUrl && (
+          <>
+            <span aria-hidden="true" class="text-[var(--fg-subtle)]">·</span>
+            <a href={repoUrl} target="_blank" rel="noopener" class="group underline-grow text-[var(--fg)]">
+              github <ExternalArrow />
+            </a>
+          </>
+        )}
+      </div>
+    </header>
+
+    <article class="prose prose-lg dark:prose-invert max-w-none mt-12">
+      <Content />
+    </article>
+
+    {relatedPosts.length > 0 && (
+      <section class="mt-20">
+        <h2 class="font-mono text-[0.8125rem] font-medium uppercase tracking-[0.1em] text-[var(--fg-muted)]">
+          Posts about this work
+        </h2>
+        <ul class="mt-4 border-t border-[var(--rule)]">
+          {relatedPosts.map((post) => (
+            <PostRow post={post} compact />
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</Layout>
