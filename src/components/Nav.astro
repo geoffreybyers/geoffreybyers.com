@@ -1,0 +1,29 @@
+---
+import { NAV_ITEMS, SITE } from "../lib/constants";
+const { pathname } = Astro.url;
+const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+---
+<header class="border-b border-[var(--rule)]">
+  <nav class="mx-auto flex max-w-[64rem] items-center justify-between px-6 py-5">
+    <a
+      href="/"
+      class="underline-grow font-medium text-[1.0625rem] text-[var(--fg)]"
+      aria-label={`${SITE.title} home`}
+    >
+      {SITE.title}
+    </a>
+    <ul class="flex items-center gap-6 text-[0.875rem]">
+      {NAV_ITEMS.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class={`underline-grow ${isActive(item.href) ? "text-[var(--fg)]" : "text-[var(--fg-muted)]"}`}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

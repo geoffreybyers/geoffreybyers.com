@@ -1,0 +1,26 @@
+---
+import { SITE, SOCIAL_LINKS } from "../lib/constants";
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-[var(--rule)] mt-24">
+  <div class="mx-auto flex max-w-[64rem] flex-col gap-4 px-6 py-10 text-[0.875rem] text-[var(--fg-muted)] sm:flex-row sm:items-center sm:justify-between">
+    <p class="font-mono text-[0.8125rem]">
+      © {year} {SITE.title}
+    </p>
+    <ul class="flex flex-wrap gap-5">
+      <li>
+        <a href="/rss.xml" class="underline-grow">RSS</a>
+      </li>
+      <li>
+        <a href={`mailto:${SITE.email}`} class="underline-grow">Email</a>
+      </li>
+      {SOCIAL_LINKS.map((link) => (
+        <li>
+          <a href={link.href} rel="me noopener" target="_blank" class="underline-grow group">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</footer>
