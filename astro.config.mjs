@@ -4,10 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
+import preact from "@astrojs/preact";
+
 export default defineConfig({
   site: "https://geoffreybyers.com",
   trailingSlash: "never",
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), preact()],
   markdown: {
     shikiConfig: {
       themes: {
