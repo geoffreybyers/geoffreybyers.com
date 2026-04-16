@@ -5,11 +5,10 @@ const posts = defineCollection({
   loader: glob({
     pattern: "**/*.{md,mdx}",
     base: "./src/content/posts",
-    generateId: ({ entry }) =>
-      entry
-        .split("/")
-        .pop()!
-        .replace(/\.(md|mdx)$/, ""),
+    generateId: ({ entry }) => {
+      const filename = entry.split("/").pop() ?? entry;
+      return filename.replace(/\.(md|mdx)$/, "");
+    },
   }),
   schema: z.object({
     title: z.string().max(120),

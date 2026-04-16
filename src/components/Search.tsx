@@ -39,7 +39,9 @@ export default function Search() {
     }
     let cancelled = false;
     (async () => {
-      const res = await window.pagefind!.search(query);
+      const pf = window.pagefind;
+      if (!pf) return;
+      const res = await pf.search(query);
       const data = await Promise.all(res.results.slice(0, 10).map((r) => r.data()));
       if (!cancelled) setHits(data);
     })();
@@ -71,7 +73,6 @@ export default function Search() {
                 </h3>
                 <p
                   class="mt-1 text-[0.875rem] text-[var(--fg-muted)]"
-                  // biome-ignore lint/security/noDangerouslySetInnerHtml: Pagefind-sanitized excerpts
                   dangerouslySetInnerHTML={{ __html: hit.excerpt }}
                 />
               </a>
