@@ -30,6 +30,8 @@ npm run preview    # preview the production build locally
    tags: ["tag1"]
    # Optional: link to a case-study work entry
    # work: restaurant-cold-email
+   # Optional: per-post OG image (path under /public)
+   # ogImage: /og-custom.png
    ---
    ```
 3. `git commit && git push` → Cloudflare Pages auto-deploys.
@@ -52,6 +54,7 @@ Each entry lives at `src/content/work/<slug>.mdx`.
 | `repoUrl`    | no       | Optional GitHub link |
 | `liveUrl`    | no       | Optional live site link |
 | `accentColor`| no       | Per-entry accent override |
+| `ogImage`    | no       | Per-entry OG image (path under `/public`) |
 
 The body is rendered only for `type: case-study` entries.
 
@@ -73,7 +76,7 @@ The body is rendered only for `type: case-study` entries.
 - **Preact** — search island only (3 KB)
 - **MDX + Shiki** — content + code highlighting
 - **Pagefind** — static search index
-- **Biome** — lint + format
+- **Biome** — lint + format (TS/JS/JSON only; `.astro` templates are excluded because Biome does not parse Astro syntax yet)
 - **Geist Sans + Geist Mono** — self-hosted via `@fontsource-variable`
 - **Cloudflare Pages** — hosting
 - **Cloudflare Web Analytics** — analytics
