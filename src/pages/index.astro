@@ -1,9 +1,64 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import WorkRow from "../components/WorkRow.astro";
+import PostRow from "../components/PostRow.astro";
+import { getCollection } from "astro:content";
+
+const allWork = await getCollection("work");
+const featuredWork = allWork
+  .filter((w) => w.data.featured)
+  .sort((a, b) => b.data.startDate.getTime() - a.data.startDate.getTime())
+  .slice(0, 3);
+
+const recentPosts = (await getCollection("posts", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 5);
 ---
-<Layout title="Home" wide>
-  <h1 class="font-semibold text-[3.5rem] leading-[1.05] tracking-tight">
-    Geoffrey Byers <span class="text-[var(--fg-subtle)]">—</span>
-  </h1>
-  <p class="mt-4 text-[1.0625rem] text-[var(--fg-muted)]">Site under construction.</p>
+<Layout wide>
+  <section class="py-4 sm:py-10">
+    <h1 class="text-[3.5rem] leading-[1.05] font-semibold tracking-tight">
+      Geoffrey Byers <span class="text-[var(--fg-subtle)]">—</span>
+    </h1>
+    <p class="mt-6 text-[1.0625rem] leading-[1.65] text-[var(--fg-muted)] max-w-[40rem]">
+      Designer-founder in Dallas, TX. I build companies, maintain small tools, and
+      write about both. Currently: shipping a B2B cold-email service for local
+      restaurants and a dictation-to-blog pipeline for myself.
+    </p>
+  </section>
+
+  {featuredWork.length > 0 && (
+    <section class="mt-16">
+      <div class="flex items-baseline justify-between">
+        <h2 class="font-mono text-[0.8125rem] font-medium uppercase tracking-[0.1em] text-[var(--fg-muted)]">
+          Current work
+        </h2>
+        <a href="/work" class="group underline-grow font-mono text-[0.8125rem] text-[var(--fg-muted)]">
+          All work <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <ul class="mt-4 border-t border-[var(--rule)]">
+        {featuredWork.map((entry, i) => (
+          <WorkRow entry={entry} index={i + 1} />
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {recentPosts.length > 0 && (
+    <section class="mt-16">
+      <div class="flex items-baseline justify-between">
+        <h2 class="font-mono text-[0.8125rem] font-medium uppercase tracking-[0.1em] text-[var(--fg-muted)]">
+          Latest posts
+        </h2>
+        <a href="/posts" class="group underline-grow font-mono text-[0.8125rem] text-[var(--fg-muted)]">
+          All posts <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <ul class="mt-4 border-t border-[var(--rule)]">
+        {recentPosts.map((post) => (
+          <PostRow post={post} />
+        ))}
+      </ul>
+    </section>
+  )}
 </Layout>
