@@ -1,0 +1,36 @@
+---
+interface Props {
+  status: "active" | "maintained" | "shipped" | "acquired" | "sunset";
+}
+const { status } = Astro.props;
+
+const LABELS: Record<Props["status"], string> = {
+  active: "active",
+  maintained: "maintained",
+  shipped: "shipped",
+  acquired: "acquired",
+  sunset: "sunset",
+};
+
+const COLOR_CLASS: Record<Props["status"], string> = {
+  active: "text-[var(--accent)]",
+  maintained: "text-[var(--fg)]",
+  shipped: "text-[var(--fg-muted)]",
+  acquired: "text-[var(--fg-muted)]",
+  sunset: "text-[var(--fg-subtle)]",
+};
+
+const BULLET_CLASS: Record<Props["status"], string> = {
+  active: "text-[var(--accent)]",
+  maintained: "text-[var(--fg)]",
+  shipped: "text-[var(--fg-muted)]",
+  acquired: "text-[var(--fg-muted)]",
+  sunset: "text-[var(--fg-subtle)]",
+};
+
+const hasBullet = status === "active" || status === "maintained";
+---
+<span class={`font-mono text-[0.8125rem] ${COLOR_CLASS[status]}`}>
+  {hasBullet && <span class={`mr-[0.35em] ${BULLET_CLASS[status]}`} aria-hidden="true">•</span>}
+  {LABELS[status]}
+</span>
