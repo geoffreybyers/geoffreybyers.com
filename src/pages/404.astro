@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Not found" description="Page not found.">
+  <h1 class="text-[3.5rem] leading-[1.05] font-semibold tracking-tight">
+    404 <span class="text-[var(--fg-subtle)]">—</span>
+  </h1>
+  <p class="mt-6 text-[1.0625rem] text-[var(--fg-muted)]">This page is not here.</p>
+
+  <nav class="mt-10 flex flex-col gap-3 text-[1.0625rem]">
+    <a href="/" class="underline-grow text-[var(--fg)]">→ Home</a>
+    <a href="/posts" class="underline-grow text-[var(--fg)]">→ All posts</a>
+    <a href="/work" class="underline-grow text-[var(--fg)]">→ All work</a>
+    <a href="/search" class="underline-grow text-[var(--fg)]">→ Search</a>
+  </nav>
+</Layout>
