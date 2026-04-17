@@ -36,6 +36,20 @@ const isProd = import.meta.env.PROD;
 
     <ClientRouter />
 
+    <script is:inline>
+      (() => {
+        const resolve = () => {
+          const t = localStorage.getItem("theme");
+          if (t === "light" || t === "dark") return t;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        };
+        document.documentElement.setAttribute("data-theme", resolve());
+        document.addEventListener("astro:after-swap", () => {
+          document.documentElement.setAttribute("data-theme", resolve());
+        });
+      })();
+    </script>
+
     {isProd && (
       <script
         is:inline

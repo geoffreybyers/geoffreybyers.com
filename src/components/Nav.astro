@@ -1,8 +1,10 @@
 ---
+import { Icon } from "astro-icon/components";
 import { NAV_ITEMS, SITE } from "../lib/constants";
 
 const { pathname } = Astro.url;
 const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+const searchActive = isActive("/search");
 ---
 <header class="border-b border-[var(--rule)]">
   <nav class="mx-auto flex max-w-[64rem] items-center justify-between px-6 py-5">
@@ -25,6 +27,63 @@ const isActive = (href: string) => pathname === href || pathname.startsWith(`${h
           </a>
         </li>
       ))}
+      <li>
+        <a
+          href="/search"
+          class={`inline-flex p-1 transition-colors hover:text-[var(--fg)] ${searchActive ? "text-[var(--fg)]" : "text-[var(--fg-muted)]"}`}
+          aria-label="Search"
+          aria-current={searchActive ? "page" : undefined}
+        >
+          <Icon name="tabler:search" class="size-5" />
+        </a>
+      </li>
+      <li>
+        <button
+          type="button"
+          data-theme-toggle
+          class="inline-flex p-1 text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          <Icon name="tabler:sun" class="size-5 hidden" data-theme-icon="light" />
+          <Icon name="tabler:moon" class="size-5 hidden" data-theme-icon="dark" />
+        </button>
+      </li>
     </ul>
   </nav>
 </header>
+
+<script>
+  type Mode = "light" | "dark";
+
+  function resolved(): Mode {
+    const t = localStorage.getItem("theme");
+    if (t === "light" || t === "dark") return t;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function apply(mode: Mode) {
+    localStorage.setItem("theme", mode);
+    document.documentElement.setAttribute("data-theme", mode);
+    syncIcons();
+  }
+
+  function syncIcons() {
+    const mode = resolved();
+    for (const el of document.querySelectorAll<HTMLElement>("[data-theme-icon]")) {
+      el.classList.toggle("hidden", el.dataset.themeIcon !== mode);
+    }
+  }
+
+  function init() {
+    syncIcons();
+    for (const btn of document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")) {
+      if (btn.dataset.wired) continue;
+      btn.dataset.wired = "1";
+      btn.addEventListener("click", () => apply(resolved() === "dark" ? "light" : "dark"));
+    }
+  }
+
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>

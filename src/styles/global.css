@@ -2,6 +2,7 @@
 @import "@fontsource-variable/geist-mono";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /* Color tokens — light mode defaults */
 :root {
@@ -17,16 +18,14 @@
   --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg:        #0a0a0a;
-    --surface:   #141414;
-    --fg:        #fafafa;
-    --fg-muted:  #9e9e9e;
-    --fg-subtle: #6b6b6b;
-    --rule:      #222222;
-    --accent:    #6b85ff;
-  }
+:root[data-theme="dark"] {
+  --bg:        #0a0a0a;
+  --surface:   #141414;
+  --fg:        #fafafa;
+  --fg-muted:  #9e9e9e;
+  --fg-subtle: #6b6b6b;
+  --rule:      #222222;
+  --accent:    #6b85ff;
 }
 
 html {
@@ -50,6 +49,16 @@ code, kbd, pre, samp {
 *:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Shiki dual-theme — switch to the dark palette when our toggle sets data-theme="dark" */
+:root[data-theme="dark"] .astro-code,
+:root[data-theme="dark"] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
 /* Underline-grow link hover (CSS background-size trick) */

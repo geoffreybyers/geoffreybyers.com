@@ -10,7 +10,6 @@ export const NAV_ITEMS = [
   { href: "/work", label: "Work" },
   { href: "/posts", label: "Posts" },
   { href: "/about", label: "About" },
-  { href: "/search", label: "Search" },
 ] as const;
 
 export const SOCIAL_LINKS = [
