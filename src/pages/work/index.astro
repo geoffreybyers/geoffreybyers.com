@@ -8,7 +8,7 @@ const all = await getCollection("work");
 const companies = sortWork(all.filter((w) => w.data.kind === "company"));
 const projects = sortWork(all.filter((w) => w.data.kind === "project"));
 ---
-<Layout title="Work" description="Companies and projects — past, maintained, and in progress." wide>
+<Layout title="Work" description="Companies and projects — past, maintained, and in progress.">
   <h1 class="text-[2.5rem] leading-[1.1] font-semibold tracking-tight">Work</h1>
 
   {companies.length > 0 && (
