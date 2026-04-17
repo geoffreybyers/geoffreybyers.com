@@ -26,12 +26,14 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.7",
+    "astro-icon": "^1.1.5",
     "preact": "^10.29.1",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
     "@biomejs/biome": "2.4.12",
+    "@iconify-json/tabler": "^1.2.33",
     "pagefind": "^1.5.2",
     "typescript": "^5.9.3"
   }

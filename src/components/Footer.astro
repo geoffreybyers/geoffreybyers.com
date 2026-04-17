@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { SITE, SOCIAL_LINKS } from "../lib/constants";
 
 const year = new Date().getFullYear();
@@ -8,17 +9,38 @@ const year = new Date().getFullYear();
     <p class="font-mono text-[0.8125rem]">
       © {year} {SITE.title}
     </p>
-    <ul class="flex flex-wrap gap-5">
+    <ul class="flex flex-wrap items-center gap-4">
       <li>
-        <a href="/rss.xml" class="underline-grow">RSS</a>
+        <a
+          href="/rss.xml"
+          class="group inline-flex p-2 text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
+          title="RSS feed"
+        >
+          <Icon name="tabler:rss" class="size-5" />
+          <span class="sr-only">RSS feed</span>
+        </a>
       </li>
       <li>
-        <a href={`mailto:${SITE.email}`} class="underline-grow">Email</a>
+        <a
+          href={`mailto:${SITE.email}`}
+          class="group inline-flex p-2 text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
+          title={`Email ${SITE.title}`}
+        >
+          <Icon name="tabler:mail" class="size-5" />
+          <span class="sr-only">Email {SITE.title}</span>
+        </a>
       </li>
       {SOCIAL_LINKS.map((link) => (
         <li>
-          <a href={link.href} rel="me noopener" target="_blank" class="underline-grow group">
-            {link.label}
+          <a
+            href={link.href}
+            rel="me noopener"
+            target="_blank"
+            class="group inline-flex p-2 text-[var(--fg-muted)] transition-colors hover:text-[var(--fg)]"
+            title={`${SITE.title} on ${link.label}`}
+          >
+            <Icon name={link.icon} class="size-5" />
+            <span class="sr-only">{SITE.title} on {link.label}</span>
           </a>
         </li>
       ))}

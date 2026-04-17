@@ -5,11 +5,12 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
 import preact from "@astrojs/preact";
+import icon from "astro-icon";
 
 export default defineConfig({
   site: "https://geoffreybyers.com",
   trailingSlash: "never",
-  integrations: [mdx(), sitemap(), preact()],
+  integrations: [mdx(), sitemap(), preact(), icon()],
   markdown: {
     shikiConfig: {
       themes: {
