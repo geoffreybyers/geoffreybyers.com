@@ -24,3 +24,11 @@ pnpm-debug.log*
 
 # editor
 .vscode/
+
+# local-only notes (personal workflow reference, never committed)
+*.local.md
+PLAN.md
+docs/superpowers/specs/
+
+# Claude Code local project state
+.claude/

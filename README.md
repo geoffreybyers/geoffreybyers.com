@@ -80,7 +80,3 @@ The body is rendered only for `type: case-study` entries.
 - **Geist Sans + Geist Mono** — self-hosted via `@fontsource-variable`
 - **Cloudflare Pages** — hosting
 - **Cloudflare Web Analytics** — analytics
-
-## Design
-
-See `docs/superpowers/specs/2026-04-16-geoffreybyers-site-design.md` for the full design spec (content model, IA, visual system). Source of truth for all design decisions.
