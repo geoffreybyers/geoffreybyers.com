@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import headshot from "../assets/headshot.jpg";
 import PostRow from "../components/PostRow.astro";
 import WorkRow from "../components/WorkRow.astro";
 import Layout from "../layouts/Layout.astro";
@@ -15,13 +17,24 @@ const recentPosts = (await getCollection("posts", ({ data }) => !data.draft))
   .slice(0, 5);
 ---
 <Layout>
-  <section class="py-4 sm:py-10">
-    <h1 class="text-[3.5rem] leading-[1.05] font-semibold tracking-tight">
-      Geoffrey Byers <span class="text-[var(--fg-subtle)]">—</span>
-    </h1>
-    <p class="mt-6 text-[1.0625rem] leading-[1.65] text-[var(--fg-muted)] max-w-[40rem]">
-      I'm a value-obsessed builder based in Dallas, TX. I speak fluent business, design, and engineering - translating between them to ship faster with fewer mistakes. Strategic thinker, ruthless prioritizer, methodical doer. Founder on the card, designer in the mind, customer at heart.
-    </p>
+  <section class="py-4 sm:py-10 flex flex-col sm:flex-row sm:items-stretch gap-6 sm:gap-8">
+    <div class="shrink-0 w-40 aspect-square sm:w-auto sm:h-auto sm:self-stretch rounded-full overflow-hidden bg-[var(--bg-subtle)]">
+      <Image
+        src={headshot}
+        alt="Geoffrey Byers"
+        widths={[240, 400, 600]}
+        sizes="(min-width: 640px) 18rem, 10rem"
+        class="h-full w-full object-cover"
+      />
+    </div>
+    <div class="min-w-0">
+      <h1 class="text-[3.5rem] leading-[1.05] font-semibold tracking-tight">
+        Hey, friends 👋
+      </h1>
+      <h2 class="mt-6 text-[1.75rem] leading-[1.25] font-normal tracking-tight text-[var(--fg-muted)] max-w-[40rem]">
+        I'm Geoffrey. A designer turned solopreneur and ai-first builder.
+      </h2>
+    </div>
   </section>
 
   {featuredWork.length > 0 && (
