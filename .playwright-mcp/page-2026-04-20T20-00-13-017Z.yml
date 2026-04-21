@@ -1,0 +1,134 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "Geoffrey Byers home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - text: Geoffrey Byers
+      - list [ref=e5]:
+        - listitem [ref=e6]:
+          - link "Work" [ref=e7] [cursor=pointer]:
+            - /url: /work
+        - listitem [ref=e8]:
+          - link "Posts" [ref=e9] [cursor=pointer]:
+            - /url: /posts
+        - listitem [ref=e10]:
+          - link "About" [ref=e11] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e12]:
+          - link "Search" [ref=e13] [cursor=pointer]:
+            - /url: /search
+            - img [ref=e14]
+        - listitem [ref=e16]:
+          - button "Toggle theme" [ref=e17]:
+            - img [ref=e18]
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - img "Geoffrey Byers" [ref=e23]
+      - generic [ref=e24]:
+        - heading "Geoffrey Byers —" [level=1] [ref=e25]
+        - paragraph [ref=e26]: I'm a value-obsessed builder based in Dallas, TX. I speak fluent business, design, and engineering - translating between them to ship faster with fewer mistakes. Strategic thinker, ruthless prioritizer, methodical doer. Founder on the card, designer in the mind, customer at heart.
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - heading "Current work" [level=2] [ref=e29]
+        - link "All work" [ref=e30] [cursor=pointer]:
+          - /url: /work
+          - text: All work →
+      - list [ref=e31]:
+        - listitem [ref=e32]:
+          - link "01 LLM Council Five AI advisors. One verdict. No groupthink. active 2026—" [ref=e33] [cursor=pointer]:
+            - /url: https://github.com/geoffreybyers/llm-council
+            - generic [ref=e34]: "01"
+            - generic [ref=e35]:
+              - generic [ref=e36]:
+                - text: LLM Council
+                - generic [ref=e37]: ↗
+              - generic [ref=e38]: Five AI advisors. One verdict. No groupthink.
+            - generic [ref=e39]:
+              - generic [ref=e40]: • active
+              - generic [ref=e41]: ·
+              - generic [ref=e42]: 2026—
+        - listitem [ref=e43]:
+          - link "02 Supply Hero B2B supplies for independent restaurants in Dallas. active 2025—" [ref=e44] [cursor=pointer]:
+            - /url: /work/supply-hero
+            - generic [ref=e45]: "02"
+            - generic [ref=e46]:
+              - generic [ref=e47]: Supply Hero
+              - generic [ref=e48]: B2B supplies for independent restaurants in Dallas.
+            - generic [ref=e49]:
+              - generic [ref=e50]: • active
+              - generic [ref=e51]: ·
+              - generic [ref=e52]: 2025—
+        - listitem [ref=e53]:
+          - link "03 Dictate Local, fast, private speech to text. active 2016—" [ref=e54] [cursor=pointer]:
+            - /url: https://github.com/geoffreybyers/dictate
+            - generic [ref=e55]: "03"
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - text: Dictate
+                - generic [ref=e58]: ↗
+              - generic [ref=e59]: Local, fast, private speech to text.
+            - generic [ref=e60]:
+              - generic [ref=e61]: • active
+              - generic [ref=e62]: ·
+              - generic [ref=e63]: 2016—
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - heading "Latest posts" [level=2] [ref=e66]
+        - link "All posts" [ref=e67] [cursor=pointer]:
+          - /url: /posts
+          - text: All posts →
+      - list [ref=e68]:
+        - listitem [ref=e69]:
+          - link "Hello, World Kicking off geoffreybyers.com — what I'll write about and why. APR 16, 2026" [ref=e70] [cursor=pointer]:
+            - /url: /posts/hello-world
+            - generic [ref=e71]:
+              - generic [ref=e72]: Hello, World
+              - generic [ref=e73]: Kicking off geoffreybyers.com — what I'll write about and why.
+            - time [ref=e74]: APR 16, 2026
+  - contentinfo [ref=e75]:
+    - generic [ref=e76]:
+      - paragraph [ref=e77]: © 2026 Geoffrey Byers
+      - list [ref=e78]:
+        - listitem [ref=e79]:
+          - link "RSS feed" [ref=e80] [cursor=pointer]:
+            - /url: /rss.xml
+            - img [ref=e81]
+            - generic [ref=e83]: RSS feed
+        - listitem [ref=e84]:
+          - link "Email Geoffrey Byers" [ref=e85] [cursor=pointer]:
+            - /url: mailto:geoffrey@geoffreybyers.com
+            - img [ref=e86]
+            - generic [ref=e88]: Email Geoffrey Byers
+        - listitem [ref=e89]:
+          - link "Geoffrey Byers on GitHub" [ref=e90] [cursor=pointer]:
+            - /url: https://github.com/geoffreybyers
+            - img [ref=e91]
+            - generic [ref=e93]: Geoffrey Byers on GitHub
+        - listitem [ref=e94]:
+          - link "Geoffrey Byers on X" [ref=e95] [cursor=pointer]:
+            - /url: https://x.com/geoffreybyers
+            - img [ref=e96]
+            - generic [ref=e98]: Geoffrey Byers on X
+        - listitem [ref=e99]:
+          - link "Geoffrey Byers on LinkedIn" [ref=e100] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/geoffreybyers
+            - img [ref=e101]
+            - generic [ref=e103]: Geoffrey Byers on LinkedIn
+        - listitem [ref=e104]:
+          - link "Geoffrey Byers on Instagram" [ref=e105] [cursor=pointer]:
+            - /url: https://www.instagram.com/geoffreybyerss/
+            - img [ref=e106]
+            - generic [ref=e108]: Geoffrey Byers on Instagram
+  - generic [ref=e111]:
+    - button "Menu" [ref=e112]:
+      - img [ref=e114]
+      - generic: Menu
+    - button "Inspect" [ref=e118]:
+      - img [ref=e120]
+      - generic: Inspect
+    - button "Audit" [ref=e122]:
+      - img [ref=e124]
+      - generic: Audit
+    - button "Settings" [ref=e127]:
+      - img [ref=e129]
+      - generic: Settings

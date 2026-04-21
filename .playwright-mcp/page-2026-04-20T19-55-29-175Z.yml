@@ -1,0 +1,213 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Skip to content" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=e5]:
+      - link "Peter Steinberger" [ref=e6] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e7]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - link "Posts" [ref=e10] [cursor=pointer]:
+              - /url: /posts
+          - listitem [ref=e11]:
+            - link "About" [ref=e12] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e13]:
+            - link "search" [ref=e14] [cursor=pointer]:
+              - /url: /search
+              - img [ref=e15]
+              - generic [ref=e19]: Search
+          - listitem [ref=e20]:
+            - button "light" [ref=e21] [cursor=pointer]:
+              - img [ref=e22]
+              - img
+    - separator [ref=e26]
+  - main [ref=e27]:
+    - generic [ref=e29]:
+      - link "Peter Steinberger" [ref=e30] [cursor=pointer]:
+        - /url: /about
+        - img "Peter Steinberger" [ref=e31]
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - heading "Hi, I'm @steipete." [level=1] [ref=e34]
+          - link "rss feed" [ref=e35] [cursor=pointer]:
+            - /url: /rss.xml
+            - img [ref=e36]
+            - generic [ref=e41]: RSS Feed
+        - paragraph [ref=e42]:
+          - text: AI-powered tools from Swift roots to web frontiers.
+          - text: Every commit lands on GitHub for you to fork & remix.
+        - generic [ref=e44]:
+          - link "Peter Steinberger on Github" [ref=e45] [cursor=pointer]:
+            - /url: https://github.com/steipete
+            - img [ref=e46]
+            - generic [ref=e49]: Peter Steinberger on Github
+          - link "Peter Steinberger on X" [ref=e50] [cursor=pointer]:
+            - /url: https://x.com/steipete
+            - img [ref=e51]
+            - generic [ref=e55]: Peter Steinberger on X
+          - link "Peter Steinberger on BlueSky" [ref=e56] [cursor=pointer]:
+            - /url: https://bsky.app/profile/steipete.me
+            - img [ref=e57]
+            - generic [ref=e59]: Peter Steinberger on BlueSky
+          - link "Peter Steinberger on LinkedIn" [ref=e60] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/steipete/
+            - img [ref=e61]
+            - generic [ref=e65]: Peter Steinberger on LinkedIn
+          - link "Send an email to Peter Steinberger" [ref=e66] [cursor=pointer]:
+            - /url: mailto:peter@steipete.me
+            - img [ref=e67]
+            - generic [ref=e71]: Send an email to Peter Steinberger
+    - separator [ref=e73]
+    - list [ref=e75]:
+      - listitem [ref=e76]:
+        - generic [ref=e77]:
+          - link "OpenClaw, OpenAI and the future" [ref=e78] [cursor=pointer]:
+            - /url: /posts/2026/openclaw
+            - heading "OpenClaw, OpenAI and the future" [level=3] [ref=e79]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - img [ref=e82]
+              - generic [ref=e85]: "Published:"
+              - time [ref=e87]: 14 Feb, 2026
+            - generic [ref=e88]: • 3 min read
+          - paragraph [ref=e90]: I'm joining OpenAI to work on bringing agents to everyone. OpenClaw will move to a foundation and stay open and independent.
+      - listitem [ref=e91]:
+        - generic [ref=e92]:
+          - link "Shipping at Inference-Speed" [ref=e93] [cursor=pointer]:
+            - /url: /posts/2025/shipping-at-inference-speed
+            - heading "Shipping at Inference-Speed" [level=3] [ref=e94]
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - img [ref=e97]
+              - generic [ref=e100]: "Published:"
+              - time [ref=e102]: 28 Dec, 2025
+            - generic [ref=e103]: • 18 min read
+          - paragraph [ref=e105]: Why I stopped reading code and started watching it stream by.
+      - listitem [ref=e106]:
+        - generic [ref=e107]:
+          - link "The Signature Flicker" [ref=e108] [cursor=pointer]:
+            - /url: /posts/2025/signature-flicker
+            - heading "The Signature Flicker" [level=3] [ref=e109]
+          - generic [ref=e110]:
+            - generic [ref=e111]:
+              - img [ref=e112]
+              - generic [ref=e115]: "Published:"
+              - time [ref=e117]: 17 Dec, 2025
+            - generic [ref=e118]: • 4 min read
+          - paragraph [ref=e120]: Hell froze over. Anthropic fixed Claude Code's signature flicker in their latest update (2.0.72)
+      - listitem [ref=e121]:
+        - generic [ref=e122]:
+          - link "Just Talk To It - the no-bs Way of Agentic Engineering" [ref=e123] [cursor=pointer]:
+            - /url: /posts/just-talk-to-it
+            - heading "Just Talk To It - the no-bs Way of Agentic Engineering" [level=3] [ref=e124]
+          - generic [ref=e125]:
+            - generic [ref=e126]:
+              - img [ref=e127]
+              - generic [ref=e130]: "Published:"
+              - time [ref=e132]: 14 Oct, 2025
+            - generic [ref=e133]: • 23 min read
+          - paragraph [ref=e135]: A practical guide to working with AI coding agents without the hype.
+      - listitem [ref=e136]:
+        - generic [ref=e137]:
+          - link "Claude Code Anonymous" [ref=e138] [cursor=pointer]:
+            - /url: /posts/2025/claude-code-anonymous
+            - heading "Claude Code Anonymous" [level=3] [ref=e139]
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - img [ref=e142]
+              - generic [ref=e145]: "Published:"
+              - time [ref=e147]: 9 Sep, 2025
+            - generic [ref=e148]: • 4 min read
+          - paragraph [ref=e150]: Introducing Claude Code Anonymous - a new meetup format for full-breadth developers.
+      - listitem [ref=e151]:
+        - generic [ref=e152]:
+          - 'link "Live Coding Session: Building Arena" [ref=e153] [cursor=pointer]':
+            - /url: /posts/2025/live-coding-session-building-arena
+            - 'heading "Live Coding Session: Building Arena" [level=3] [ref=e154]'
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - img [ref=e157]
+              - generic [ref=e160]: "Published:"
+              - time [ref=e162]: 6 Sep, 2025
+            - generic [ref=e163]: • 4 min read
+          - paragraph [ref=e165]: Watch me build Arena live - a real-time collaborative coding session exploring AI-powered development workflows.
+      - listitem [ref=e166]:
+        - generic [ref=e167]:
+          - link "My Current AI Dev Workflow" [ref=e168] [cursor=pointer]:
+            - /url: /posts/2025/optimal-ai-development-workflow
+            - heading "My Current AI Dev Workflow" [level=3] [ref=e169]
+          - generic [ref=e170]:
+            - generic [ref=e171]:
+              - img [ref=e172]
+              - generic [ref=e175]: "Published:"
+              - time [ref=e177]: 25 Aug, 2025
+            - generic [ref=e178]: • 4 min read
+          - paragraph [ref=e180]: Went fully back to Ghostty, VS Code on the side, and Claude Code as my main driver. Here's what actually works after months of experimentation.
+      - listitem [ref=e181]:
+        - generic [ref=e182]:
+          - link "Essential Reading for Agentic Engineers - August 2025" [ref=e183] [cursor=pointer]:
+            - /url: /posts/2025/essential-reading-august-2025
+            - heading "Essential Reading for Agentic Engineers - August 2025" [level=3] [ref=e184]
+          - generic [ref=e185]:
+            - generic [ref=e186]:
+              - img [ref=e187]
+              - generic [ref=e190]: "Published:"
+              - time [ref=e192]: 21 Aug, 2025
+            - generic [ref=e193]: • 8 min read
+          - paragraph [ref=e195]: "Five essential perspectives that cut through AI hype: from developer evolution stages to junior learning crises, productivity reality checks, platform disruption, and MCP server pitfalls."
+      - listitem [ref=e196]:
+        - generic [ref=e197]:
+          - link "Just One More Prompt" [ref=e198] [cursor=pointer]:
+            - /url: /posts/just-one-more-prompt
+            - heading "Just One More Prompt" [level=3] [ref=e199]
+          - generic [ref=e200]:
+            - generic [ref=e201]:
+              - img [ref=e202]
+              - generic [ref=e205]: "Published:"
+              - time [ref=e207]: 19 Aug, 2025
+            - generic [ref=e208]: • 5 min read
+          - paragraph [ref=e210]: Hi, my name is Peter and I'm a Claudoholic. A reflection on AI addiction, extreme work culture, and the blurry line between productivity and obsession in the age of agentic engineering.
+      - listitem [ref=e211]:
+        - generic [ref=e212]:
+          - 'link "Poltergeist: The Ghost That Keeps Your Builds Fresh" [ref=e213] [cursor=pointer]':
+            - /url: /posts/2025/poltergeist-ghost-keeps-builds-fresh
+            - 'heading "Poltergeist: The Ghost That Keeps Your Builds Fresh" [level=3] [ref=e214]'
+          - generic [ref=e215]:
+            - generic [ref=e216]:
+              - img [ref=e217]
+              - generic [ref=e220]: "Published:"
+              - time [ref=e222]: 5 Aug, 2025
+            - generic [ref=e223]: • 8 min read
+          - paragraph [ref=e225]: "Meet Poltergeist: an AI-friendly universal build watcher that auto-detects and rebuilds any project—Swift, Rust, Node.js, CMake, or anything else—the moment you save a file. Zero config, just haunting productivity."
+    - link "All Posts" [ref=e227] [cursor=pointer]:
+      - /url: /posts/
+      - text: All Posts
+      - img [ref=e228]
+  - contentinfo [ref=e232]:
+    - separator [ref=e234]
+    - generic [ref=e235]:
+      - generic [ref=e236]:
+        - link "Peter Steinberger on Github" [ref=e237] [cursor=pointer]:
+          - /url: https://github.com/steipete
+          - img [ref=e238]
+          - generic [ref=e241]: Peter Steinberger on Github
+        - link "Peter Steinberger on X" [ref=e242] [cursor=pointer]:
+          - /url: https://x.com/steipete
+          - img [ref=e243]
+          - generic [ref=e247]: Peter Steinberger on X
+        - link "Peter Steinberger on BlueSky" [ref=e248] [cursor=pointer]:
+          - /url: https://bsky.app/profile/steipete.me
+          - img [ref=e249]
+          - generic [ref=e251]: Peter Steinberger on BlueSky
+        - link "Peter Steinberger on LinkedIn" [ref=e252] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/steipete/
+          - img [ref=e253]
+          - generic [ref=e257]: Peter Steinberger on LinkedIn
+        - link "Send an email to Peter Steinberger" [ref=e258] [cursor=pointer]:
+          - /url: mailto:peter@steipete.me
+          - img [ref=e259]
+          - generic [ref=e263]: Send an email to Peter Steinberger
+      - link "Steal this post ➜ CC BY 4.0 · Code MIT" [ref=e265] [cursor=pointer]:
+        - /url: https://github.com/steipete/steipete.me
